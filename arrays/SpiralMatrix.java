@@ -7,9 +7,9 @@ import java.util.List;
 
 public class SpiralMatrix {
     public static void main(String[] args) {
-        int[][] matrix = {{1, 2, 3},
-                {4,5,6},
-                {7,8,9}};
+        int[][] matrix = {{1, 2, 3,4},
+                {5,6,7,8},
+                {9,10,11,12}};
           ArrayList<Integer> result = new ArrayList<>();
 
             if(matrix == null || matrix.length == 0) System.out.println(result);
@@ -27,6 +27,7 @@ public class SpiralMatrix {
                          result.add(matrix[top][i]);
                      }
                      top++;
+                     break;
                  case 1:
                      //go from top to bottom when hit right
                      for (int i = top; i <= bottom; i++) {
@@ -34,6 +35,7 @@ public class SpiralMatrix {
                          result.add(matrix[i][right]);
                      }
                      right--;
+                     break;
 
                  case 2:
                      //go from bottom to left
@@ -42,6 +44,7 @@ public class SpiralMatrix {
                          result.add(matrix[bottom][i]);
                      }
                      bottom--;
+                     break;
 
                  case 3:
                      //go from bottom to up
@@ -50,11 +53,13 @@ public class SpiralMatrix {
                          result.add(matrix[i][left]);
                      }
                      left++;
+                     break;
              }
 
-                count = (count+1)%4;
-                System.out.println(result);
+                count = (count+1)%6;
+
             }
+        System.out.println(result);
 
         }
 
